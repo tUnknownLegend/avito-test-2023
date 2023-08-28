@@ -19,14 +19,10 @@ const router = createBrowserRouter(
             <Route
                 element={<CatalogPage/>}
                 path="/"
-                // loader={async () => {
-                //     const results = fetch(
-                //         `${ApiPaths.base}/${ApiPaths.category}`,
-                //         {mode: 'no-cors'},
-                //     ).then((response) => response.json());
-                //     return defer({results});
-                // }
-                loader={async () => Request.makeGetRequest(ApiPaths.category)}
+                loader={async () => {
+                    console.log(window.location.search);
+                    return Request.makeGetRequest(ApiPaths.category + window.location.search);
+                }}
                 errorElement={<ErrorPage/>}
             />
             <Route

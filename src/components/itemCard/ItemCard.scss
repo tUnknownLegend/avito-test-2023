@@ -1,6 +1,7 @@
 .item-card {
   height: min-content;
   width: min-content;
+  min-height: 268px;
   margin: var(--default-space);
   padding: var(--default-space);
   display: grid;
@@ -39,4 +40,5 @@
   width: 24px;
   height: 24px;
   grid-row: 4;
+  grid-column: 2;
 }

@@ -32,7 +32,7 @@ function ProductDescription({title, data} : {title: string, data: object}) {
     const items: DescriptionsProps['items'] = Object.keys(data).map((entry, index: number) => {
         return {
             key: index,
-            label: entry.charAt(0).toUpperCase() + entry.slice(1),
+            label: entry.charAt(0).toUpperCase() + entry.slice(1).split('_').join(' '),
             children: data[entry] ?? 'Not defined',
         };
     });

@@ -49,7 +49,7 @@ function ProductPage() {
 
                         const basiInfo = {
                             title: results.title,
-                            releaseDate: results.release_date,
+                            release_date: results.release_date,
                             publisher: results.publisher,
                             developer: results.developer,
                             genre: results.genre,
@@ -59,7 +59,7 @@ function ProductPage() {
                             <Layout className="product-page-container">
                                 <CarouselProduct imgs={imgs.reverse()}/>
                                 <ProductDescription
-                                    title={''}
+                                    title={'Description'}
                                     data={basiInfo}
                                 />
                                 <ProductDescription
