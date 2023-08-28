@@ -1,5 +1,11 @@
 .filter-selector {
+  display: flex;
+  flex-direction: column;
   padding: var(--larger-space);
   white-space: nowrap;
   background-color: white;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  border-radius: var(--container-border-radius);
+  max-height: 16em;
 }

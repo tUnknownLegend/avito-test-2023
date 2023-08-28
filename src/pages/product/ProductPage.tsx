@@ -8,6 +8,7 @@ import React from 'react';
 import {errorHandler} from '../../app/router.tsx';
 import {catalogItem} from '../catalog/CatalogPage.tsx';
 import WindowsLogo from '../../../public/logos/windows/WindowsLogo.tsx';
+import SpinIndicator from '../../components/spinIndicator/SpinIndicator.tsx';
 
 type screenshotItem = {
     id: number,
@@ -37,7 +38,7 @@ export interface productInfo extends catalogItem {
 function ProductPage() {
     const data = useLoaderData();
     return (
-        <React.Suspense fallback={<p>Loading data...</p>}>
+        <React.Suspense fallback={<SpinIndicator/>}>
             <Await resolve={data.results}
                 children={([responseCode, results]) => {
                     const errorsHandled = errorHandler(responseCode);

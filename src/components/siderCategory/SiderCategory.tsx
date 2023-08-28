@@ -1,14 +1,13 @@
 import Sider from 'antd/es/layout/Sider';
-import {Space} from 'antd';
 import FilterSelector from '../filterSelector/FilterSelector.tsx';
 import {categories} from '../../../public/apiConsts.ts';
+import './SiderCategory.scss';
 
 const platforms = ['Browser', 'Windows'];
 const SiderCategory = () => {
     return (
-        <Sider className="category-selector">
+        <Sider className="category-selector" theme={'light'}>
             <FilterSelector checkBoxContent={categories}/>
-            <Space></Space>
             <FilterSelector checkBoxContent={platforms}/>
         </Sider>
     );

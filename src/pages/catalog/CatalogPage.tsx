@@ -7,6 +7,7 @@ import {Await, useLoaderData} from 'react-router-dom';
 import React from 'react';
 import {errorHandler} from '../../app/router.tsx';
 import {platformNames} from '../../../public/logos/logoMather.tsx';
+import SpinIndicator from '../../components/spinIndicator/SpinIndicator.tsx';
 
 export interface catalogItem {
     id: number,
@@ -23,7 +24,7 @@ function CatalogPage() {
         <Layout className="catalog-page-container" hasSider={true}>
             <SiderCategory/>
             <SortBySelector/>
-            <React.Suspense fallback={<p>Loading data...</p>}>
+            <React.Suspense fallback={<SpinIndicator/>}>
                 <Await resolve={data.results}
                     children={(results) => {
                         const errorsHandeled = errorHandler(results[0]);

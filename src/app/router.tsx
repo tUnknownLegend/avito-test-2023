@@ -19,10 +19,9 @@ const router = createBrowserRouter(
             <Route
                 element={<CatalogPage/>}
                 path="/"
-                loader={async () => {
-                    console.log(window.location.search);
-                    return Request.makeGetRequest(ApiPaths.category + window.location.search);
-                }}
+                loader={async () =>
+                    Request.makeGetRequest(ApiPaths.category + window.location.search)
+                }
                 errorElement={<ErrorPage/>}
             />
             <Route
