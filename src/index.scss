@@ -1,0 +1,24 @@
+:root {
+  --background-color: grey;
+  --container-background-color: white;
+  --container-border-radius: 8px;
+  --inner-border-radius: calc(var(--container-border-radius) / 2);
+  --item-card-container-width: 240px;
+  //--item-card-container-width: 224px;
+  --item-card-img-height: 135px;
+  //--item-card-img-height: 126px;
+  --small-space: 8px;
+  --default-space: 16px;
+  --larger-space: 24px;
+  --big-space: 32px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.root-layout {
+  display: flex;
+  justify-content: center;
+}

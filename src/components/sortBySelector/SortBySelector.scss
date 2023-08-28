@@ -1,0 +1,7 @@
+.sort-by-container {
+  display: flex;
+  gap: var(--default-space);
+  margin: var(--big-space) var(--big-space) 0 var(--big-space);
+  grid-column: 2;
+  align-items: center;
+}
