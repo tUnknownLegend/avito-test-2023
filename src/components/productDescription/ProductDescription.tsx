@@ -1,43 +1,26 @@
 import {Descriptions, DescriptionsProps} from 'antd';
 
-// const items: DescriptionsProps['items'] = [
-//     {
-//         key: '1',
-//         label: 'UserName',
-//         children: 'Zhou Maomao',
-//     },
-//     {
-//         key: '2',
-//         label: 'Telephone',
-//         children: '1810000000',
-//     },
-//     {
-//         key: '3',
-//         label: 'Live',
-//         children: 'Hangzhou, Zhejiang',
-//     },
-//     {
-//         key: '4',
-//         label: 'Remark',
-//         children: 'empty',
-//     },
-//     {
-//         key: '5',
-//         label: 'Address',
-//         children: 'No. 18, Wantang Road, Xihu District, Hangzhou, Zhejiang, China',
-//     },
-// ];
-
-function ProductDescription({title, data} : {title: string, data: object}) {
-    const items: DescriptionsProps['items'] = Object.keys(data).map((entry, index: number) => {
-        return {
-            key: index,
-            label: entry.charAt(0).toUpperCase() + entry.slice(1).split('_').join(' '),
-            children: data[entry] ?? 'Not defined',
-        };
-    });
+function ProductDescription({title, data, className}: { title: string, data: object, className: string }) {
+    let items: DescriptionsProps['items'];
+    if (data) {
+        items = Object.keys(data).map((entry, index: number) => {
+            return {
+                key: index,
+                label: entry.charAt(0).toUpperCase() + entry.slice(1).split('_').join(' '),
+                children: data[entry] ?? 'Not defined',
+            };
+        });
+    } else {
+        items = [
+            {
+                key: 0,
+                label: 'Platform',
+                children: 'Browser',
+            },
+        ];
+    }
     return (
-        <Descriptions title={title} items={items} />
+        <Descriptions className={className} column={2} title={title} items={items}/>
     );
 }
 

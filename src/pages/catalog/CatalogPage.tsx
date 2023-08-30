@@ -19,7 +19,7 @@ export interface catalogItem {
 }
 
 function CatalogPage() {
-    const data = useLoaderData();
+    const data = useLoaderData() as {results: catalogItem};
     return (
         <Layout className="catalog-page-container" hasSider={true}>
             <SiderCategory/>

@@ -9,6 +9,14 @@
   background-color: var(--container-background-color);
   border-radius: var(--container-border-radius);
   grid-template-columns: 1fr min-content;
+  color: inherit;
+  transition: filter 0.512s;
+}
+
+.item-card:hover {
+  color: inherit;
+  filter: var(--apple-shadow);
+  transition: filter 0.512s;
 }
 
 .item-card__title {
@@ -41,4 +49,9 @@
   height: 24px;
   grid-row: 4;
   grid-column: 2;
+}
+
+.item-card__logo-container {
+  display: flex;
+  gap: var(--small-space);
 }

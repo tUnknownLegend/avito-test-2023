@@ -10,6 +10,8 @@
   --default-space: 16px;
   --larger-space: 24px;
   --big-space: 32px;
+  --shadow-default: #d6d6d6;
+  --apple-shadow: drop-shadow(0 0 20px var(--shadow-default));
 }
 
 * {

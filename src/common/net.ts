@@ -1,10 +1,10 @@
-import {ApiPaths} from '../../public/apiConsts.ts';
+import {apiPaths} from '../../public/apiConsts.ts';
 import {defer} from 'react-router-dom';
 
 /**
  * Class for handling network requests.
  */
-class Request {
+class NetRequest {
     #headers = {
         'Content-Type': 'application/json',
         'accept': 'application/json',
@@ -18,7 +18,7 @@ class Request {
      * @param options - request params
      * @returns - request promise
      */
-    makeRequest = async (url: string, options: object) => {
+    #makeRequest = async (url: string, options: object) => {
         const results= fetch(url, options).then((response) => response.ok ?
             response.json().then((data) => [response.status, data]) :
             [response.status, response.body]).catch((error) => [500, error]);
@@ -38,8 +38,8 @@ class Request {
             credentials: 'include',
             headers: this.#headers,
         };
-        return this.makeRequest(`${ApiPaths.base}/${url}`, options);
+        return this.#makeRequest(`${apiPaths.base}/${url}`, options);
     };
 }
 
-export default new Request();
+export default new NetRequest();

@@ -1,10 +1,13 @@
 import BrowserSVG from './chromiumLogo.svg';
+import {Tooltip} from 'antd';
 
 function BrowserLogo({externalClassName}: { externalClassName: string }) {
     return (
-        <img src={BrowserSVG}
-            alt="browser-logo" className={externalClassName}>
-        </img>
+        <Tooltip placement="bottom" title={'Browser'}>
+            <img src={BrowserSVG}
+                alt="browser-logo" className={externalClassName}>
+            </img>
+        </Tooltip>
     );
 }
 

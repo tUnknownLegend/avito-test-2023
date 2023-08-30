@@ -1,4 +1,4 @@
-import {Carousel, Layout} from 'antd';
+import {Layout} from 'antd';
 
 import './ProductPage.scss';
 import CarouselProduct from '../../components/carouselProduct/carouselProduct.tsx';
@@ -7,8 +7,8 @@ import {Await, useLoaderData} from 'react-router-dom';
 import React from 'react';
 import {errorHandler} from '../../app/router.tsx';
 import {catalogItem} from '../catalog/CatalogPage.tsx';
-import WindowsLogo from '../../../public/logos/windows/WindowsLogo.tsx';
 import SpinIndicator from '../../components/spinIndicator/SpinIndicator.tsx';
+import ProductBreadcrumb from '../../components/productBreadcrumb/productBreadcrumb.tsx';
 
 type screenshotItem = {
     id: number,
@@ -27,22 +27,14 @@ export interface productInfo extends catalogItem {
     }
 }
 
-// const platforms = {
-//     'PC (Windows)': <WindowsLogo externalClassName={'item-card__logo'}/>,
-//     'Web Browser': <WindowsLogo externalClassName={'item-card__logo'}/>,
-// };
-//
-// export type platformNames = keyof typeof platforms;
-// export type platformLogos = typeof platforms[platformNames];
-
 function ProductPage() {
-    const data = useLoaderData();
+    const data = useLoaderData() as {results: productInfo};
     return (
         <React.Suspense fallback={<SpinIndicator/>}>
             <Await resolve={data.results}
                 children={([responseCode, results]) => {
                     const errorsHandled = errorHandler(responseCode);
-                    if (errorsHandled) {
+                    if (errorsHandled || !(data)) {
                         return errorsHandled;
                     } else {
                         const imgs = results.screenshots.map((item: screenshotItem) => item.image);
@@ -56,14 +48,21 @@ function ProductPage() {
                             genre: results.genre,
                         };
 
+                        document.title = results.title;
                         return (
                             <Layout className="product-page-container">
                                 <CarouselProduct imgs={imgs.reverse()}/>
+                                <div className="product-title">
+                                    <h1>{results.title}</h1>
+                                    <ProductBreadcrumb title={results.title}/>
+                                </div>
                                 <ProductDescription
+                                    className="product-basic-info"
                                     title={'Description'}
                                     data={basiInfo}
                                 />
                                 <ProductDescription
+                                    className="product-system-requirements"
                                     title={'System requirements'}
                                     data={results.minimum_system_requirements}
                                 />

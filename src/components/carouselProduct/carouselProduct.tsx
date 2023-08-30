@@ -7,9 +7,11 @@ function CarouselProduct({imgs} : {imgs: Array<string>}) {
         </img>));
 
     return (
-        <Carousel className="img-container">
-            {carouselContent}
-        </Carousel>
+        <div className="product-img-container">
+            <Carousel autoplay={true}>
+                {carouselContent}
+            </Carousel>
+        </div>
     );
 }
 

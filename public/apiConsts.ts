@@ -16,9 +16,9 @@ export const queryParams = {
     platforms: 'platform',
 };
 
-export const ApiPaths = {
+export const apiPaths = {
     base: 'https://free-to-play-games-database.p.rapidapi.com/api',
-    // base: 'https://www.freetogame.com/api',
     category: 'games',
+    filter: 'filter',
     product: 'game',
 };

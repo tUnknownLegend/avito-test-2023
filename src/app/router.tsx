@@ -1,5 +1,5 @@
 import {
-    BrowserRouter, createBrowserRouter, createRoutesFromElements, defer, Route, Routes,
+    createBrowserRouter, createRoutesFromElements, Route,
 } from 'react-router-dom';
 
 import App from '../App.tsx';
@@ -7,34 +7,39 @@ import ErrorPage from '../pages/errorPage/ErrorPage.tsx';
 import CatalogPage from '../pages/catalog/CatalogPage.tsx';
 import ProductPage from '../pages/product/ProductPage.tsx';
 import NotFoubdPage from '../pages/notFoundPage/NotFoubdPage.tsx';
-import {ApiPaths} from '../../public/apiConsts.ts';
-import Request from '../common/net.ts';
+import {apiPaths, queryParams} from '../../public/apiConsts.ts';
+import NetRequest from '../common/net.ts';
+
+const catalogLoader = async () =>
+    // NetRequest.makeGetRequest(apiPaths.category + location.search);
+    NetRequest.makeGetRequest(
+        (location.search.includes(queryParams.categories) ?
+            apiPaths.filter :
+            apiPaths.category) +
+    location.search,
+    );
+
+const gameLoader = async ({params}: { params: { gameID: string } }) =>
+    NetRequest.makeGetRequest(apiPaths.product + '?id=' + params.gameID ?? '');
 
 const router = createBrowserRouter(
     createRoutesFromElements(
-
         <Route
             element={<App/>}
         >
             <Route
                 element={<CatalogPage/>}
                 path="/"
-                loader={async () =>
-                    Request.makeGetRequest(ApiPaths.category + window.location.search)
-                }
+                loader={catalogLoader}
                 errorElement={<ErrorPage/>}
             />
             <Route
                 element={<ProductPage/>}
                 path="/game/:gameID"
-                loader={
-                    async ({params}) =>
-                        Request.makeGetRequest(ApiPaths.product + '?id=' + params.gameID ?? '')
-                }
+                loader={gameLoader}
                 errorElement={<ErrorPage/>}
             />
-            <Route path='*' element={<NotFoubdPage />}/>
-            <Route path='/500error' element={<ErrorPage />}/>
+            <Route path='*' element={<NotFoubdPage/>}/>
         </Route>,
     ));
 
@@ -43,8 +48,10 @@ export const errorHandler = (status: number) => {
     switch (status) {
     case 200:
         return null;
-    case 404: return (<NotFoubdPage />);
-    default: return (<ErrorPage />);
+    case 404:
+        return (<NotFoubdPage/>);
+    default:
+        return (<ErrorPage/>);
     }
 };
 

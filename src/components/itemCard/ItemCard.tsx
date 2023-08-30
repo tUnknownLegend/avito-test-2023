@@ -7,8 +7,9 @@ type ItemCard = {
     item: catalogItem
 };
 
+const transformDate = (date: string) => new Date(date).toLocaleDateString('ru-RU');
+
 function ItemCard({item} : ItemCard) {
-    item.platform;
     return (
         <Link to={`game/${item.id}`} className="item-card">
             <img className="item-card__image"
@@ -27,7 +28,7 @@ function ItemCard({item} : ItemCard) {
             </div>
 
             <span className="item-card__    release-date">
-                {item.release_date}
+                {transformDate(item.release_date)}
             </span>
 
             {mathLogo(item.platform)}
