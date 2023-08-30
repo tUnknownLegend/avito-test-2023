@@ -30,7 +30,9 @@ export interface productInfo extends catalogItem {
 function ProductPage() {
     const data = useLoaderData() as {results: productInfo};
     return (
-        <React.Suspense fallback={<SpinIndicator/>}>
+        <React.Suspense fallback={
+            <SpinIndicator/>
+        }>
             <Await resolve={data.results}
                 children={([responseCode, results]) => {
                     const errorsHandled = errorHandler(responseCode);
@@ -72,7 +74,6 @@ function ProductPage() {
                 }}
             />
         </React.Suspense>
-
     );
 }
 

@@ -1,8 +1,12 @@
 import {Spin} from 'antd';
+import './SpinIndicator.scss';
 
 function SpinIndicator() {
     return (
-        <Spin size="large"/>
+        <div className={'spin-indicator'}>
+            <Spin size="large"/>
+            <h2>Wait for a moment...</h2>
+        </div>
     );
 }
 
