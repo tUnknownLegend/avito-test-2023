@@ -6,6 +6,8 @@
   background-color: white;
   overflow-y: auto;
   scrollbar-width: thin;
+  scrollbar-color: var(--background-color);
+  scrollbar-gutter: stable;
   border-radius: var(--container-border-radius);
   max-height: 16em;
 }

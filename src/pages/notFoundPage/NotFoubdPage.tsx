@@ -1,6 +1,6 @@
 import {Empty} from 'antd';
 
-function NotFoubdPage() {
+function NotFoundPage() {
     return (
         <Empty>
             404 error
@@ -8,4 +8,4 @@ function NotFoubdPage() {
     );
 }
 
-export default NotFoubdPage;
+export default NotFoundPage;

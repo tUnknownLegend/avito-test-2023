@@ -4,20 +4,21 @@ import {
 
 import App from '../App.tsx';
 import ErrorPage from '../pages/errorPage/ErrorPage.tsx';
-import CatalogPage from '../pages/catalog/CatalogPage.tsx';
-import ProductPage from '../pages/product/ProductPage.tsx';
-import NotFoubdPage from '../pages/notFoundPage/NotFoubdPage.tsx';
+import CatalogPage from '../pages/catalogPage/CatalogPage.tsx';
+import ProductPage from '../pages/productPage/ProductPage.tsx';
+import NotFoundPage from '../pages/notFoundPage/NotFoubdPage.tsx';
 import {apiPaths, queryParams} from '../../public/apiConsts.ts';
 import NetRequest from '../common/net.ts';
 
-const catalogLoader = async () =>
-    // NetRequest.makeGetRequest(apiPaths.category + location.search);
-    NetRequest.makeGetRequest(
-        (location.search.includes(queryParams.categories) ?
+const catalogLoader = async ({request} : {request: Request}) => {
+    const params = new URLSearchParams(request.url.split('?')[1]).toString();
+    return NetRequest.makeGetRequest(
+        (params.includes(queryParams.categories) ?
             apiPaths.filter :
-            apiPaths.category) +
-    location.search,
+            apiPaths.category) + '?' +
+        params,
     );
+};
 
 const gameLoader = async ({params}: { params: { gameID: string } }) =>
     NetRequest.makeGetRequest(apiPaths.product + '?id=' + params.gameID ?? '');
@@ -39,7 +40,7 @@ const router = createBrowserRouter(
                 loader={gameLoader}
                 errorElement={<ErrorPage/>}
             />
-            <Route path='*' element={<NotFoubdPage/>}/>
+            <Route path='*' element={<NotFoundPage/>}/>
         </Route>,
     ));
 
@@ -49,7 +50,9 @@ export const errorHandler = (status: number) => {
     case 200:
         return null;
     case 404:
-        return (<NotFoubdPage/>);
+        return (<NotFoundPage/>);
+    case 0:
+        return (<NotFoundPage/>);
     default:
         return (<ErrorPage/>);
     }

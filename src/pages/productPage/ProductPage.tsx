@@ -6,7 +6,7 @@ import ProductDescription from '../../components/productDescription/ProductDescr
 import {Await, useLoaderData} from 'react-router-dom';
 import React from 'react';
 import {errorHandler} from '../../app/router.tsx';
-import {catalogItem} from '../catalog/CatalogPage.tsx';
+import {catalogItem} from '../catalogPage/CatalogPage.tsx';
 import SpinIndicator from '../../components/spinIndicator/SpinIndicator.tsx';
 import ProductBreadcrumb from '../../components/productBreadcrumb/productBreadcrumb.tsx';
 

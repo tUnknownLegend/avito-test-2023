@@ -1,5 +1,5 @@
 import './ItemCard.scss';
-import {catalogItem} from '../../pages/catalog/CatalogPage.tsx';
+import {catalogItem} from '../../pages/catalogPage/CatalogPage.tsx';
 import {mathLogo, platformNames} from '../../../public/logos/logoMather.tsx';
 import {Link} from 'react-router-dom';
 
