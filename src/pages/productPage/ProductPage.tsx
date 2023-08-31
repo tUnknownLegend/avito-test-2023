@@ -39,13 +39,13 @@ function ProductPage() {
             <Await resolve={data.results}
                 children={([responseCode, results]) => {
                     const errorsHandled = errorHandler(responseCode);
-                    if (errorsHandled || !(data)) {
+                    if (errorsHandled) {
                         return errorsHandled;
                     } else {
                         const imgs = results.screenshots.map((item: screenshotItem) => item.image);
                         imgs.push(results.thumbnail);
 
-                        const basiInfo = {
+                        const basicInfo = {
                             title: results.title,
                             release_date: results.release_date,
                             publisher: results.publisher,
@@ -64,7 +64,7 @@ function ProductPage() {
                                 <ProductDescription
                                     className="product-basic-info"
                                     title={'Description'}
-                                    data={basiInfo}
+                                    data={basicInfo}
                                 />
                                 <ProductDescription
                                     className="product-system-requirements"

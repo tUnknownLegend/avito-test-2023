@@ -29,14 +29,14 @@ function CatalogPage() {
             <SortBySelector/>
             <React.Suspense fallback={<SpinIndicator/>}>
                 <Await resolve={data.results}
-                    children={(results) => {
-                        const errorsHandeled = errorHandler(results[0]);
-                        if (errorsHandeled) {
-                            return errorsHandeled;
+                    children={([responseCode, results]) => {
+                        const errorsHandled = errorHandler(responseCode);
+                        if (errorsHandled) {
+                            return errorsHandled;
                         } else {
                             return (
                                 <div className="item-card-container">
-                                    {results[1].map((item: catalogItem, key: number) => (
+                                    {results.map((item: catalogItem, key: number) => (
                                         <ItemCard item={item} key={key}/>
                                     ))}
                                 </div>
