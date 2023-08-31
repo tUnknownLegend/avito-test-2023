@@ -6,7 +6,8 @@ export default {
     preset: 'ts-jest',
     transform: {},
     moduleNameMapper: {
-        '\\.(css)$': 'identity-obj-proxy',
+        '\\.(scss)$': '<rootDir>/test/__mocks__/styleMock.ts',
+        '/.webp|.svg|.jpg|.jpeg|.gif|.png/': '<rootDir>/test/__mocks__/styleMock.ts',
     },
     collectCoverageFrom: [
         'src/components/**/*.tsx',
