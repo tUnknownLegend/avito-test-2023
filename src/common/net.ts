@@ -12,6 +12,9 @@ class NetRequest {
         'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com',
     };
 
+    controller = new AbortController();
+    signal = this.controller.signal;
+
     /**
      * Method implementing http-request.
      * @param url - path to which send request
@@ -36,6 +39,7 @@ class NetRequest {
             method: 'get',
             mode: 'cors',
             credentials: 'include',
+            signal: this.signal,
             headers: this.#headers,
         };
         return this.#makeRequest(`${apiPaths.base}/${url}`, options);
