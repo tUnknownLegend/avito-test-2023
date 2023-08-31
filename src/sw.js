@@ -47,7 +47,7 @@ self.addEventListener('fetch', (event) => {
     }
     if (imageRegRex.test(event.request)) {
         event.respondWith(cacheFirst(event));
-    } else {
+    } else if (event.request.path.includes('/game/')) {
         event.respondWith(networkFirst(event));
     }
 });

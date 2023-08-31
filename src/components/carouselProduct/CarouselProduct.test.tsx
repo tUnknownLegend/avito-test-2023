@@ -1,5 +1,5 @@
 import {render} from '@testing-library/react';
-import CarouselProduct from './carouselProduct.tsx';
+import CarouselProduct from './CarouselProduct.tsx';
 
 afterEach(jest.clearAllMocks);
 
