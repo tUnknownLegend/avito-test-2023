@@ -7,10 +7,10 @@ export default defineConfig({
         strategies: 'injectManifest',
         srcDir: 'src',
         filename: 'sw.js',
-        // devOptions: {
-        //     enabled: true,
-        //     type: 'module',
-        // }
+        devOptions: {
+            enabled: true,
+            type: 'module',
+        }
     })],
     server: {
         port: 3001,

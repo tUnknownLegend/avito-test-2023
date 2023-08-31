@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {categories} from '../../public/apiConsts.ts';
-import {filterCatalogPlatformReducerSlice, filterStateType} from './filterCatalogPlatform.ts';
+import {filterStateType} from './filterCatalogPlatform.ts';
 
 export interface filterCatalogCategoryState {
     value: filterStateType

@@ -3,9 +3,10 @@ const urls = [];
 const imageRegRex = /.webp|.svg|.jpg|.jpeg|.gif|.png/;
 
 /**
- * Подписываемся на событие установки сервис воркера
+ * Subscribe on installation of service worker
  */
 self.addEventListener('install', (event) => {
+    console.log('ins');
     self.skipWaiting();
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => cache.addAll(urls)),
@@ -13,14 +14,14 @@ self.addEventListener('install', (event) => {
 });
 
 /**
- * Удаляет запись кеша
+ * Deletes cache record
  */
 const deleteCache = async (key) => {
     await caches.delete(key);
 };
 
 /**
- * Удаляет старый кеш
+ * Deletes outdated cache
  */
 const deleteOldCaches = async () => {
     const cacheKeepList = [CACHE_NAME];
@@ -30,7 +31,7 @@ const deleteOldCaches = async () => {
 };
 
 /**
- * Подписываемся на событие активации сервис воркера
+ * Subscribe on activation of service worker
  */
 self.addEventListener('activate', (event) => {
     event.waitUntil(deleteOldCaches());
@@ -38,7 +39,7 @@ self.addEventListener('activate', (event) => {
 });
 
 /**
- * Подписываемся на событие отправки браузером запроса к серверу
+ * Subscribe on event of browser sending request to the WEB
  */
 self.addEventListener('fetch', (event) => {
     if (event.request.method !== 'GET') {
@@ -52,7 +53,7 @@ self.addEventListener('fetch', (event) => {
 });
 
 /**
- * Первый запрос в сеть
+ * Using network data first
  * @param {Event} event - событие, вызвавшее обработчик
  */
 async function networkFirst(event) {
@@ -83,7 +84,7 @@ async function networkFirst(event) {
 }
 
 /**
- * Первый запрос в сеть
+ * Using cache data first
  * @param {Event} event - событие, вызвавшее обработчик
  */
 async function cacheFirst(event) {

@@ -1,12 +1,8 @@
 import Sider from 'antd/es/layout/Sider';
 import CategoryFilterSelector from '../filterSelector/category/CategoryFilterSelector.tsx';
 import PlatformFilterSelector from '../filterSelector/platform/PlatformFilterSelector.tsx';
-import {
-    filterStateType,
-    setCheckedStatePlatform,
-} from '../../features/filterCatalogPlatform.ts';
+import {filterStateType} from '../../features/filterCatalogPlatform.ts';
 import './SiderCategory.scss';
-import {setCheckedStateCategory} from '../../features/filterCatalogCategory.ts';
 
 export type changeParamFunctionPayload = {
     searchParams : URLSearchParams,
