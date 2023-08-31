@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Spin Indicator test should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="spin-indicator"
+  >
+    <div
+      aria-busy="true"
+      aria-live="polite"
+      class="ant-spin ant-spin-lg ant-spin-spinning css-dev-only-do-not-override-17a39f8"
+    >
+      <span
+        class="ant-spin-dot ant-spin-dot-spin"
+      >
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+        <i
+          class="ant-spin-dot-item"
+        />
+      </span>
+    </div>
+    <h2>
+      Wait for a moment...
+    </h2>
+  </div>
+</DocumentFragment>
+`;

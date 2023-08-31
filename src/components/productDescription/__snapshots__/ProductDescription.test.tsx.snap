@@ -1,0 +1,159 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Product Description test should render correctly Browser version 1`] = `
+<DocumentFragment>
+  <div
+    class="ant-descriptions product-system-requirements css-dev-only-do-not-override-17a39f8"
+  >
+    <div
+      class="ant-descriptions-header"
+    >
+      <div
+        class="ant-descriptions-title"
+      >
+        System requirements
+      </div>
+    </div>
+    <div
+      class="ant-descriptions-view"
+    >
+      <table>
+        <tbody />
+      </table>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Product Description test should render correctly PC version 1`] = `
+<DocumentFragment>
+  <div
+    class="ant-descriptions product-system-requirements css-dev-only-do-not-override-17a39f8"
+  >
+    <div
+      class="ant-descriptions-header"
+    >
+      <div
+        class="ant-descriptions-title"
+      >
+        System requirements
+      </div>
+    </div>
+    <div
+      class="ant-descriptions-view"
+    >
+      <table>
+        <tbody>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  Os
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  Windows XP 
+                </span>
+              </div>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  Processor
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  ?
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  Memory
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  2 GB RAM 
+                </span>
+              </div>
+            </td>
+            <td
+              class="ant-descriptions-item"
+              colspan="1"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  Graphics
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  Integrated graphics is fine
+                </span>
+              </div>
+            </td>
+          </tr>
+          <tr
+            class="ant-descriptions-row"
+          >
+            <td
+              class="ant-descriptions-item"
+              colspan="2"
+            >
+              <div
+                class="ant-descriptions-item-container"
+              >
+                <span
+                  class="ant-descriptions-item-label"
+                >
+                  Storage
+                </span>
+                <span
+                  class="ant-descriptions-item-content"
+                >
+                  200 MB available space 
+                </span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</DocumentFragment>
+`;

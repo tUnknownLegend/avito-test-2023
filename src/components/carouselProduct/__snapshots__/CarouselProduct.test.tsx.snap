@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Carousel Product test should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="product-img-container"
+  >
+    <div
+      class="ant-carousel css-dev-only-do-not-override-17a39f8"
+    >
+      <div
+        class="slick-slider slick-initialized"
+        dir="ltr"
+      >
+        <div
+          class="slick-list"
+        >
+          <div
+            class="slick-track"
+            style="opacity: 1; transform: translate3d(0px, 0px, 0px);"
+          >
+            <div
+              aria-hidden="true"
+              class="slick-slide slick-cloned"
+              data-index="-1"
+              style="width: 0px;"
+              tabindex="-1"
+            >
+              <div>
+                <img
+                  alt="https://www.freetogame.com/g/181/8BitMMO-1.jpg"
+                  class="product-images"
+                  src="https://www.freetogame.com/g/181/8BitMMO-1.jpg"
+                  style="width: 100%; display: inline-block;"
+                  tabindex="-1"
+                />
+              </div>
+            </div>
+            <div
+              aria-hidden="false"
+              class="slick-slide slick-active slick-current"
+              data-index="0"
+              style="outline: none; width: 0px;"
+              tabindex="-1"
+            >
+              <div>
+                <img
+                  alt="https://www.freetogame.com/g/181/thumbnail.jpg"
+                  class="product-images"
+                  src="https://www.freetogame.com/g/181/thumbnail.jpg"
+                  style="width: 100%; display: inline-block;"
+                  tabindex="-1"
+                />
+              </div>
+            </div>
+            <div
+              aria-hidden="true"
+              class="slick-slide"
+              data-index="1"
+              style="outline: none; width: 0px;"
+              tabindex="-1"
+            >
+              <div>
+                <img
+                  alt="https://www.freetogame.com/g/181/8BitMMO-1.jpg"
+                  class="product-images"
+                  src="https://www.freetogame.com/g/181/8BitMMO-1.jpg"
+                  style="width: 100%; display: inline-block;"
+                  tabindex="-1"
+                />
+              </div>
+            </div>
+            <div
+              aria-hidden="true"
+              class="slick-slide slick-cloned"
+              data-index="2"
+              style="width: 0px;"
+              tabindex="-1"
+            >
+              <div>
+                <img
+                  alt="https://www.freetogame.com/g/181/thumbnail.jpg"
+                  class="product-images"
+                  src="https://www.freetogame.com/g/181/thumbnail.jpg"
+                  style="width: 100%; display: inline-block;"
+                  tabindex="-1"
+                />
+              </div>
+            </div>
+            <div
+              aria-hidden="true"
+              class="slick-slide slick-cloned"
+              data-index="3"
+              style="width: 0px;"
+              tabindex="-1"
+            >
+              <div>
+                <img
+                  alt="https://www.freetogame.com/g/181/8BitMMO-1.jpg"
+                  class="product-images"
+                  src="https://www.freetogame.com/g/181/8BitMMO-1.jpg"
+                  style="width: 100%; display: inline-block;"
+                  tabindex="-1"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <ul
+          class="slick-dots slick-dots-bottom"
+          style="display: block;"
+        >
+          <li
+            class="slick-active"
+          >
+            <button>
+              1
+            </button>
+          </li>
+          <li
+            class=""
+          >
+            <button>
+              2
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
