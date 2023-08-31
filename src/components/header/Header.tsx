@@ -4,11 +4,24 @@ import {categories, platforms, queryParams} from '../../../public/apiConsts.ts';
 import './Header.scss';
 import {Link} from 'react-router-dom';
 import {ItemType, MenuItemType} from 'antd/es/menu/hooks/useItems';
+import {useAppDispatch} from '../../app/hooks.ts';
+import {setPlatform} from '../../features/filterCatalogPlatform.ts';
+import {setCategory} from '../../features/filterCatalogCategory.ts';
+
+const updateFilterSelector = (updateFun: Function, array: Array<string>, value: string) =>{
+    const dispatch = useAppDispatch();
+    dispatch(updateFun(array.indexOf(value)));
+};
 
 const categoriesMenu: MenuProps['items'] = categories.map((value, index) => {
     return {
         label:
-            <Link to={'?' + queryParams.categories + '=' + value}>{value}</Link>,
+            <Link
+                to={'?' + queryParams.categories + '=' + value}
+                onClick={() => updateFilterSelector(setCategory, categories, value)}
+            >
+                {value}
+            </Link>,
         key: index,
     };
 });
@@ -16,7 +29,11 @@ const categoriesMenu: MenuProps['items'] = categories.map((value, index) => {
 const platformMenu: MenuProps['items'] = platforms.map((value, index) => {
     return {
         label:
-            <Link to={'?' + queryParams.platforms + '=' + value}>{value}</Link>,
+            <Link to={'?' + queryParams.platforms + '=' + value}
+                onClick={() => updateFilterSelector(setPlatform, platforms, value)}
+            >
+                {value}
+            </Link>,
         key: index,
     };
 });
@@ -31,8 +48,13 @@ function MyHeader() {
         index,
         type: 'group',
         label:
-            <Dropdown menu={{items}} trigger={['click', 'hover']} autoAdjustOverflow={true}>
-                <span>{buttonText[index]}</span>
+            <Dropdown
+                overlayClassName="header__dropdown"
+                menu={{items}}
+                trigger={['hover']}
+                placement={'bottomLeft'}
+            >
+                <span className="header__item">{buttonText[index]}</span>
             </Dropdown>,
     }));
 

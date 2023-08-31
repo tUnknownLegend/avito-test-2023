@@ -1,9 +1,12 @@
 import Sider from 'antd/es/layout/Sider';
-import {categories, platforms, queryParams} from '../../../public/apiConsts.ts';
 import CategoryFilterSelector from '../filterSelector/category/CategoryFilterSelector.tsx';
 import PlatformFilterSelector from '../filterSelector/platform/PlatformFilterSelector.tsx';
-
+import {
+    filterStateType,
+    setCheckedStatePlatform,
+} from '../../features/filterCatalogPlatform.ts';
 import './SiderCategory.scss';
+import {setCheckedStateCategory} from '../../features/filterCatalogCategory.ts';
 
 export type changeParamFunctionPayload = {
     searchParams : URLSearchParams,
@@ -17,15 +20,17 @@ export type filterSelectorProps = {
     queryParam: string,
 }
 
-export interface filterSelectorPropsFunc extends filterSelectorProps {
+export interface filterSelectorPropsFunc<setCheckedStateType> extends filterSelectorProps {
     getNewParams: (changeParamPayload : changeParamFunctionPayload) => URLSearchParams;
+    setCheckedState: setCheckedStateType
+    checkedState: filterStateType
 }
 
 const SiderCategory = () => {
     return (
         <Sider className="category-selector" theme={'light'}>
-            <CategoryFilterSelector checkBoxContent={categories} queryParam={queryParams.categories}/>
-            <PlatformFilterSelector checkBoxContent={platforms} queryParam={queryParams.platforms}/>
+            <CategoryFilterSelector/>
+            <PlatformFilterSelector/>
         </Sider>
     );
 };

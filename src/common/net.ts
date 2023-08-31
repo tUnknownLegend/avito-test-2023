@@ -8,6 +8,7 @@ class NetRequest {
     #headers = {
         'Content-Type': 'application/json',
         'accept': 'application/json',
+        // 'X-RapidAPI-Key': 'c1e55ff5ebmsh93686e0a76d9b42p120301jsn0b2f32d88e2d',
         'X-RapidAPI-Key': 'cf47e79214mshd8c84ddf6ce65cfp143935jsnfd442403565e',
         'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com',
     };
