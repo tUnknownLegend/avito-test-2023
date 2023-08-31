@@ -3,6 +3,7 @@ import {categories, platforms, queryParams} from '../../../public/apiConsts.ts';
 
 import './Header.scss';
 import {Link} from 'react-router-dom';
+import {ItemType, MenuItemType} from 'antd/es/menu/hooks/useItems';
 
 const categoriesMenu: MenuProps['items'] = categories.map((value, index) => {
     return {
@@ -22,11 +23,15 @@ const platformMenu: MenuProps['items'] = platforms.map((value, index) => {
 
 const buttonText = ['Categories', 'Platforms'];
 
+/**
+ * Component to render header
+ */
 function MyHeader() {
-    const menuItems: MenuProps['items'] = [categoriesMenu, platformMenu].map((items, index) => ({
+    const menuItems: ItemType<MenuItemType>[] = [categoriesMenu, platformMenu].map((items, index) => ({
         index,
+        type: 'group',
         label:
-            <Dropdown menu={{items}} trigger={['click']} autoAdjustOverflow={true}>
+            <Dropdown menu={{items}} trigger={['click', 'hover']} autoAdjustOverflow={true}>
                 <span>{buttonText[index]}</span>
             </Dropdown>,
     }));

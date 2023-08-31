@@ -20,9 +20,13 @@ const catalogLoader = async ({request} : {request: Request}) => {
     );
 };
 
-const gameLoader = async ({params}: { params: { gameID: string } }) =>
-    NetRequest.makeGetRequest(apiPaths.product + '?id=' + params.gameID ?? '');
-
+const gameLoader = async ({params}: {params: object}) => {
+    if ('gameID' in params) {
+        return NetRequest.makeGetRequest(apiPaths.product + '?id=' + params.gameID ?? '');
+    } else {
+        return Error('wrong game ID');
+    }
+};
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route

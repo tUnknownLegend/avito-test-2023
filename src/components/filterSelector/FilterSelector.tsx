@@ -1,10 +1,13 @@
 import {Checkbox} from 'antd';
 import {useState} from 'react';
 import './filterSelector.scss';
-import {defer, useSearchParams} from 'react-router-dom';
+import {useSearchParams} from 'react-router-dom';
 import {firstLetterUppercase} from '../../common/string.ts';
 import {filterSelectorPropsFunc} from '../siderCategory/SiderCategory.tsx';
 
+/**
+ * Component to render filter selector
+ */
 function FilterSelector({checkBoxContent, queryParam, getNewParams}: filterSelectorPropsFunc) {
     const [checkedState, setCheckedState] = useState(
         checkBoxContent.map((value) => location.search.includes(value)),

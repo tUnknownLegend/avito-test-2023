@@ -18,6 +18,9 @@ const getNewParams = (
     return searchParams;
 };
 
+/**
+ * Component to render category filter selector
+ */
 function CategoryFilterSelector({checkBoxContent, queryParam}: filterSelectorProps) {
     return (
         <FilterSelector

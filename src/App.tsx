@@ -5,6 +5,9 @@ import {Outlet} from 'react-router-dom';
 
 import './App.scss';
 
+/**
+ * base component
+ */
 function App() {
     return (
         <Layout className="main-layout">

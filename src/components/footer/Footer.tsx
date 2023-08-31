@@ -19,6 +19,10 @@ const footerData = [
         label: 'Vlad Pinevich',
     },
 ];
+
+/**
+ * Component to render footer
+ */
 function MyFooter() {
     const footerItems = footerData.map((footerItem) => (
         <Link className="footer-item" to={footerItem.link} key={footerItem.link}>

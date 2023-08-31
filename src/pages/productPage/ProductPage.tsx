@@ -27,6 +27,9 @@ export interface productInfo extends catalogItem {
     }
 }
 
+/**
+ * View to render product page
+ * */
 function ProductPage() {
     const data = useLoaderData() as {results: productInfo};
     return (

@@ -1,6 +1,9 @@
 import {Spin} from 'antd';
 import './SpinIndicator.scss';
 
+/**
+ * Component to render spinner
+ */
 function SpinIndicator() {
     return (
         <div className={'spin-indicator'}>

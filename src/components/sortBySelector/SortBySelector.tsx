@@ -7,6 +7,9 @@ import {useState} from 'react';
 
 const accentClassName = 'sort-by-container__button_selected';
 
+/**
+ * Component to render sort by selector
+ */
 function SortBySelector() {
     const [selectedState, setSelectedState] = useState(
         sortBy.map((value) =>

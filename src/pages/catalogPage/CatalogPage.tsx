@@ -18,6 +18,9 @@ export interface catalogItem {
     release_date: string
 }
 
+/**
+ * View to render catalog(landing) page
+ * */
 function CatalogPage() {
     const data = useLoaderData() as {results: catalogItem};
     return (

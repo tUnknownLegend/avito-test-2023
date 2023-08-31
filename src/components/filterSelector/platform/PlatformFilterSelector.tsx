@@ -14,6 +14,10 @@ const getNewParams = (
     }
     return searchParams;
 };
+
+/**
+ * Component to render platform filter selector
+ */
 function PlatformFilterSelector({checkBoxContent, queryParam}: filterSelectorProps) {
     return (
         <FilterSelector

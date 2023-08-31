@@ -1,9 +1,12 @@
 import {Empty} from 'antd';
 
+/**
+ * View to render page for 404 error
+ * */
 function NotFoundPage() {
     return (
         <Empty>
-            404 error
+            You caught us up! No page was found on this request
         </Empty>
     );
 }
