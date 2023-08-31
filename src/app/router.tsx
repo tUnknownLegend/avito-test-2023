@@ -12,7 +12,6 @@ import NetRequest from '../common/net.ts';
 
 const catalogLoader = async ({request} : {request: Request}) => {
     const params = new URLSearchParams(request.url.split('?')[1]).toString();
-    NetRequest.controller.abort();
     return NetRequest.makeGetRequest(
         (params.includes(queryParams.categories) ?
             apiPaths.filter :
@@ -23,7 +22,6 @@ const catalogLoader = async ({request} : {request: Request}) => {
 
 const gameLoader = async ({params}: {params: object}) => {
     if ('gameID' in params) {
-        NetRequest.controller.abort();
         return NetRequest.makeGetRequest(apiPaths.product + '?id=' + params.gameID ?? '');
     } else {
         return Error('wrong game ID');
