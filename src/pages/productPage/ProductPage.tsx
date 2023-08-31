@@ -56,11 +56,11 @@ function ProductPage() {
                         document.title = results.title;
                         return (
                             <Layout className="product-page-container">
-                                <CarouselProduct imgs={imgs.reverse()}/>
                                 <div className="product-title">
                                     <h1>{results.title}</h1>
                                     <ProductBreadcrumb title={results.title}/>
                                 </div>
+                                <CarouselProduct imgs={imgs.reverse()}/>
                                 <ProductDescription
                                     className="product-basic-info"
                                     title={'Description'}

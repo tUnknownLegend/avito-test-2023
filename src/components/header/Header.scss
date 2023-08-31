@@ -10,7 +10,7 @@
 }
 
 .header__dropdown {
-  max-height: 80vh;
+  max-height: 40vh;
   overflow-y: scroll;
   border-radius: var(--border-radius-container);
   filter: var(--apple-shadow);
@@ -32,4 +32,10 @@
   cursor: inherit;
   width: 100%;
   text-align: left;
+}
+
+@media (max-width: 767px) {
+  .header__dropdown {
+    max-height: 20vh;
+  }
 }
