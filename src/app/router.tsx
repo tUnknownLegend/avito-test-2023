@@ -6,7 +6,7 @@ import App from '../App.tsx';
 import ErrorPage from '../pages/errorPage/ErrorPage.tsx';
 import CatalogPage from '../pages/catalogPage/CatalogPage.tsx';
 import ProductPage from '../pages/productPage/ProductPage.tsx';
-import NotFoundPage from '../pages/notFoundPage/NotFoubdPage.tsx';
+import NotFoundPage from '../pages/notFoundPage/NotFoundPage.tsx';
 import {apiPaths, queryParams} from '../../public/apiConsts.ts';
 import NetRequest from '../common/net.ts';
 

@@ -3,3 +3,33 @@
   gap: var(--default-space);
   padding: var(--small-space);
 }
+
+.header__item {
+  cursor: pointer;
+  color: var(--font-color);
+}
+
+.header__dropdown {
+  max-height: 80vh;
+  overflow-y: scroll;
+  border-radius: var(--border-radius-container);
+  filter: var(--apple-shadow);
+}
+
+.header__dropdown::-webkit-scrollbar {
+  width: 4px;
+}
+
+.header__dropdown::-webkit-scrollbar-thumb {
+  background-color: slategray;
+  border-radius: var(--inner-border-radius)
+}
+
+.dropdown__item {
+  border: none;
+  background-color: inherit;
+  color: inherit;
+  cursor: inherit;
+  width: 100%;
+  text-align: left;
+}

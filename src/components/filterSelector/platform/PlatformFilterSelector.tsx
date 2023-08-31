@@ -1,6 +1,8 @@
-import {changeParamFunctionPayload, filterSelectorProps} from '../../siderCategory/SiderCategory.tsx';
+import {changeParamFunctionPayload} from '../../siderCategory/SiderCategory.tsx';
 import FilterSelector from '../FilterSelector.tsx';
-import {platforms} from '../../../../public/apiConsts.ts';
+import {platforms, queryParams} from '../../../../public/apiConsts.ts';
+import {setCheckedStatePlatform, setPlatform} from '../../../features/filterCatalogPlatform.ts';
+import {useAppSelector} from '../../../app/hooks.ts';
 
 const getNewParams = (
     {searchParams, paramValue, isCheckedState, queryParam} : changeParamFunctionPayload) => {
@@ -18,12 +20,17 @@ const getNewParams = (
 /**
  * Component to render platform filter selector
  */
-function PlatformFilterSelector({checkBoxContent, queryParam}: filterSelectorProps) {
+function PlatformFilterSelector() {
+    const checkedState =
+        useAppSelector((state) =>
+            state.filterCatalogPlatform.value);
     return (
-        <FilterSelector
-            checkBoxContent={checkBoxContent}
-            queryParam={queryParam}
+        <FilterSelector<setCheckedStatePlatform>
+            checkBoxContent={platforms}
+            queryParam={queryParams.platforms}
             getNewParams={getNewParams}
+            setCheckedState={setPlatform}
+            checkedState={checkedState}
         />
     );
 }

@@ -1,9 +1,7 @@
 import WindowsLogo from './windows/WindowsLogo';
 import BrowserLogo from './browser/BrowserLogo';
-import React from 'react';
 
-
-const platforms = {
+const itemPlatforms = {
     'PC (Windows)': <WindowsLogo externalClassName={'item-card__logo'}/>,
     'Web Browser': <BrowserLogo externalClassName={'item-card__logo'}/>,
     'PC (Windows), Web Browser': <div className={'item-card__logo-container'}>
@@ -12,7 +10,6 @@ const platforms = {
     </div>,
 };
 
-export type platformNames = keyof typeof platforms;
-export type platformLogos = typeof platforms[platformNames];
+export type platformNames = keyof typeof itemPlatforms;
 
-export const mathLogo = (platform: platformNames) => platforms[platform];
+export const mathLogo = (platform: platformNames) => itemPlatforms[platform];

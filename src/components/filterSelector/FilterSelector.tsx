@@ -1,25 +1,26 @@
 import {Checkbox} from 'antd';
-import {useState} from 'react';
 import './filterSelector.scss';
 import {useSearchParams} from 'react-router-dom';
 import {firstLetterUppercase} from '../../common/string.ts';
 import {filterSelectorPropsFunc} from '../siderCategory/SiderCategory.tsx';
+import {useAppDispatch} from '../../app/hooks.ts';
 
 /**
  * Component to render filter selector
  */
-function FilterSelector({checkBoxContent, queryParam, getNewParams}: filterSelectorPropsFunc) {
-    const [checkedState, setCheckedState] = useState(
-        checkBoxContent.map((value) => location.search.includes(value)),
-    );
+function FilterSelector<setCheckedStateType>(
+    {checkBoxContent, queryParam, getNewParams, setCheckedState, checkedState}:
+        filterSelectorPropsFunc<setCheckedStateType>) {
+    if (!(setCheckedState instanceof Function)) {
+        throw Error(`wrong type of ${setCheckedState}`);
+    }
+    const dispatch = useAppDispatch();
+
     const [searchParams, setSearchParams] = useSearchParams();
 
     const handleOnChange = (changedCheckboxIndex: number, paramValue: string) => {
-        const updatedCheckedState = checkedState.map((isChecked, index) =>
-            index === changedCheckboxIndex ? !isChecked : isChecked,
-        );
+        dispatch(setCheckedState(changedCheckboxIndex));
 
-        setCheckedState(updatedCheckedState);
         setSearchParams(getNewParams({
             searchParams,
             paramValue,

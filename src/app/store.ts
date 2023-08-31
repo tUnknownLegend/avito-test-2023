@@ -1,8 +1,16 @@
 import {configureStore} from '@reduxjs/toolkit';
-import filterCatalogReducer from '../features/net/catalog.ts';
+import filterCatalogCategoryReducer from '../features/filterCatalogCategory.ts';
+import filterCatalogPlatformReducer from '../features/filterCatalogPlatform.ts';
 
-export default configureStore({
+const store = configureStore({
     reducer: {
-        filterCatalog: filterCatalogReducer,
+        filterCatalogCategory: filterCatalogCategoryReducer,
+        filterCatalogPlatform: filterCatalogPlatformReducer,
     },
 });
+
+export default store;
+
+export type RootState = ReturnType<typeof store.getState>
+
+export type AppDispatch = typeof store.dispatch

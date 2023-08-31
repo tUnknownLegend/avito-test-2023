@@ -6,13 +6,16 @@
   "parser": "@typescript-eslint/parser",
   "plugins": [
     "@typescript-eslint",
-    "eslint-plugin-tsdoc"
+    "eslint-plugin-tsdoc",
+    "react"
   ],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "google"
+    "google",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime"
   ],
   "parserOptions": {
     "ecmaVersion": 13,
@@ -30,6 +33,12 @@
     "@typescript-eslint/no-non-null-assertion": "off",
     "tsdoc/syntax": "warn",
     "valid-jsdoc": "off",
+    "react/no-children-prop": "off",
     "max-len": ["error", { "code": 105 }]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
