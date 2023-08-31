@@ -24,3 +24,12 @@
   background-color: slategray;
   border-radius: var(--inner-border-radius)
 }
+
+.dropdown__item {
+  border: none;
+  background-color: inherit;
+  color: inherit;
+  cursor: inherit;
+  width: 100%;
+  text-align: left;
+}

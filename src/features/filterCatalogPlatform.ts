@@ -1,5 +1,6 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {platforms} from '../../public/apiConsts.ts';
+import {filterCatalogCategoryReducerSlice} from './filterCatalogCategory.ts';
 
 export type filterStateType = Array<boolean>
 export interface filterCatalogPlatformState {
@@ -19,11 +20,27 @@ export const filterCatalogPlatformReducerSlice = createSlice({
                 index === action.payload ? !isChecked : isChecked,
             );
         },
+        selectPlatform: (state, action: PayloadAction<number>) => {
+            state.value = state.value.map((isChecked, index) =>
+                index === action.payload,
+            );
+        },
+        setInitialPlatform: (state) => {
+            state.value = initialState.value;
+        },
     },
 });
 
-export const {setPlatform} = filterCatalogPlatformReducerSlice.actions;
+export const {
+    setPlatform,
+    selectPlatform,
+    setInitialPlatform,
+} = filterCatalogPlatformReducerSlice.actions;
 
 export default filterCatalogPlatformReducerSlice.reducer;
 
 export type setCheckedStatePlatform = typeof filterCatalogPlatformReducerSlice.actions.setPlatform
+export type selectCheckedStatePlatform = typeof filterCatalogPlatformReducerSlice.actions.selectPlatform
+export type setInitialCheckedStatePlatform =
+    typeof filterCatalogPlatformReducerSlice.actions.setInitialPlatform
+
