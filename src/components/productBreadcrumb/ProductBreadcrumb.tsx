@@ -1,6 +1,6 @@
 import {Breadcrumb} from 'antd';
 import {useNavigate} from 'react-router-dom';
-import './productBreadcrumb.scss';
+import './ProductBreadcrumb.scss';
 
 /**
  * Component to render product go back to catalog button

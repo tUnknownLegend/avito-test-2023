@@ -1,14 +1,14 @@
 import {Layout} from 'antd';
 
 import './ProductPage.scss';
-import CarouselProduct from '../../components/carouselProduct/carouselProduct.tsx';
+import CarouselProduct from '../../components/carouselProduct/CarouselProduct.tsx';
 import ProductDescription from '../../components/productDescription/ProductDescription.tsx';
 import {Await, useLoaderData} from 'react-router-dom';
 import React from 'react';
 import {errorHandler} from '../../app/router.tsx';
 import {catalogItem} from '../catalogPage/CatalogPage.tsx';
 import SpinIndicator from '../../components/spinIndicator/SpinIndicator.tsx';
-import ProductBreadcrumb from '../../components/productBreadcrumb/productBreadcrumb.tsx';
+import ProductBreadcrumb from '../../components/productBreadcrumb/ProductBreadcrumb.tsx';
 
 type screenshotItem = {
     id: number,

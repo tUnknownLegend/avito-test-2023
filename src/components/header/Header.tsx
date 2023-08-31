@@ -12,30 +12,25 @@ import {
     selectCheckedStateCategory, setInitialCategory, setInitialCheckedStateCategory,
 } from '../../features/filterCatalogCategory.ts';
 import {AppDispatch} from '../../app/store.ts';
-import {SetURLSearchParams, useSearchParams} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 const getMenu =
     (dispatch: AppDispatch,
         updateFun: selectCheckedStateCategory | selectCheckedStatePlatform,
-        items: Array<string>, paramName: string, setParams: SetURLSearchParams,
+        items: Array<string>, paramName: string,
         setInitialFilter: setInitialCheckedStateCategory | setInitialCheckedStatePlatform):
         MenuProps['items'] =>
         items.map((value, index) => {
             return {
                 label:
-            <button
-                className="dropdown__item"
-                onClick={() => {
-                    dispatch(updateFun(items.indexOf(value)));
-                    dispatch(setInitialFilter());
-                    const newParams = new URLSearchParams();
-                    newParams.set(paramName, value);
-                    setParams(newParams);
-                }
-                }
-            >
-                {value}
-            </button>,
+                (<Link to={'/?' + paramName + '=' + value} relative="path"
+                    onClick={() => {
+                        dispatch(updateFun(items.indexOf(value)));
+                        dispatch(setInitialFilter());
+                    }
+                    }>
+                    {value}
+                </Link>),
                 key: index,
             };
         });
@@ -47,13 +42,12 @@ const buttonText = ['Categories', 'Platforms'];
  */
 function MyHeader() {
     const dispatch = useAppDispatch();
-    const [_, setSearchParams] = useSearchParams();
 
     const menuItems: ItemType<MenuItemType>[] =
         [
-            getMenu(dispatch, selectCategory, categories, queryParams.categories, setSearchParams,
+            getMenu(dispatch, selectCategory, categories, queryParams.categories,
                 setInitialPlatform),
-            getMenu(dispatch, selectPlatform, platforms, queryParams.platforms, setSearchParams,
+            getMenu(dispatch, selectPlatform, platforms, queryParams.platforms,
                 setInitialCategory),
         ].
             map((items, index) => ({
@@ -65,6 +59,7 @@ function MyHeader() {
                 menu={{items}}
                 trigger={['hover']}
                 placement={'bottomLeft'}
+                destroyPopupOnHide={true}
             >
                 <span className="header__item">{buttonText[index]}</span>
             </Dropdown>,
