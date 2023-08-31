@@ -1,0 +1,12 @@
+.product-img-container {
+  grid-row: 2 / 4;
+  grid-column: 1;
+  width: 512px;
+  height: 288px;
+}
+
+.product-images {
+  width: 512px;
+  height: 288px;
+  border-radius: var(--container-border-radius);
+}

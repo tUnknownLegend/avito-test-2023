@@ -1,0 +1,24 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+
+.footer-image {
+  height: 24px;
+  width: 24px;
+}
+
+.footer-item {
+  display: flex;
+  margin: var(--big-space);
+  gap: var(--small-space);
+  flex-direction: column;
+  align-items: center;
+  color: var(--font-color);
+}
+
+.footer-item:hover {
+  color: var(--font-color);
+}

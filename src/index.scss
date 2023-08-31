@@ -1,0 +1,25 @@
+:root {
+  --background-color: grey;
+  --container-background-color: white;
+  --font-color: #333;
+  --container-border-radius: 8px;
+  --inner-border-radius: calc(var(--container-border-radius) / 2);
+  --item-card-container-width: 240px;
+  --item-card-img-height: 135px;
+  --small-space: 8px;
+  --default-space: 16px;
+  --larger-space: 24px;
+  --big-space: 32px;
+  --shadow-default: #d6d6d6;
+  --apple-shadow: drop-shadow(0 0 20px var(--shadow-default));
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.root-layout {
+  display: flex;
+  justify-content: center;
+}

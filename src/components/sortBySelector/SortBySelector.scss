@@ -1,0 +1,12 @@
+.sort-by-container {
+  display: flex;
+  gap: var(--default-space);
+  margin: var(--big-space) var(--big-space) 0 var(--big-space);
+  grid-column: 2;
+  grid-row: 1;
+  align-items: center;
+}
+
+.sort-by-container__button_selected {
+  font-weight: bold;
+}
